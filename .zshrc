@@ -12,12 +12,12 @@
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # show os info when opening new terminal
-neofetch
+# neofetch
 # Powerline Config
 POWERLEVEL9K_MODE='nerdfont-complete'
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda os_icon ssh context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history battery time)
 # POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
 POWERLEVEL9K_BATTERY_STAGES=($'\uf244' $'\uf243' $'\uf242' $'\uf241' $'\uf240' )
@@ -84,6 +84,7 @@ POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  conda
   git
 )
 
@@ -130,6 +131,10 @@ export PATH="/home/amperius/anaconda3/bin:$PATH"
 alias emacs="emacsclient -nc"
 alias sorc="source ~/.zshrc"
 alias zshconfig="emacs ~/.zshrc"
-alias ssh2tf="ssh vloeth@login.informatik.uni-freiburg.de"
-
+alias ssh2tf="ssh -X vloeth@login.informatik.uni-freiburg.de"
+alias fuse2tf="sshfs vloeth@login.informatik.uni-freiburg.de:/home/vloeth/ ~/fusessh"
+alias defuse="fusermount -u ~/fusessh "
+alias restartSnap='systemctl restart snapd.service'
+alias py27='source activate py27'
+alias deac='source deactivate'
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
